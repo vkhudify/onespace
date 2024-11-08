@@ -55,7 +55,17 @@ new class extends Component
                         <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
+                        @if(request()->user()->isDeveloper == true)
+                            <x-dropdown-link :href="route('telescope')" wire:navigate>
+                                {{ __('Telescope') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('pulse')" wire:navigate>
+                                {{ __('Pulse') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('testing.welcome')" wire:navigate>
+                                {{ __('Testing') }}
+                            </x-dropdown-link>
+                        @endif
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-start">
                             <x-dropdown-link>
