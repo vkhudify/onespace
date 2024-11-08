@@ -107,7 +107,17 @@ new class extends Component
                 <x-responsive-nav-link :href="route('profile')" wire:navigate>
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
+                @if(request()->user()->isDeveloper == true)
+                    <x-responsive-nav-link :href="route('telescope')" wire:navigate>
+                        {{ __('Telescope') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('pulse')" wire:navigate>
+                        {{ __('Pulse') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('testing.welcome')" wire:navigate>
+                        {{ __('Testing') }}
+                    </x-responsive-nav-link>
+                @endif
                 <!-- Authentication -->
                 <button wire:click="logout" class="w-full text-start">
                     <x-responsive-nav-link>
